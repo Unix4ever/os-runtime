@@ -87,6 +87,11 @@ func (spec *ResourceSpec[T, S]) GetValue() proto.Message { //nolint:ireturn
 	return spec.Value
 }
 
+// SetValue sets wrapped protobuf object.
+func (spec *ResourceSpec[T, S]) SetValue(value *T) {
+	spec.Value = value
+}
+
 // Equal implements spec equality check.
 func (spec *ResourceSpec[T, S]) Equal(other any) bool {
 	otherSpec, ok := other.(*ResourceSpec[T, S])
